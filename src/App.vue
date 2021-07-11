@@ -1,32 +1,59 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+
+  <v-card width="400" class="mx-auto mt-5">
+    <v-card-title>
+        <h1 class="diplay-1">Login</h1>
+    </v-card-title>
+  <v-card-text>
+    <v-form>
+      <v-text-field 
+      label="Username"
+      prepend-icon="mdi-account-circle"
+       />
+      <v-text-field
+       :type="showPassword ? 'tex t' : 'password'  "
+       label="Password" 
+       prepend-icon="mdi-lock"
+       :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+       @click:append="showPassword = !showPassword"
+       />
+    </v-form>  
+  </v-card-text>
+
+  <v-card-actions>
+    <v-btn
+      color="success"
+    >
+      Register
+    </v-btn>
+    <v-btn
+      color="info"
+    >
+      Login 
+    </v-btn> 
+  </v-card-actions>
+
+  </v-card>
+ 
+
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
-}
+// import HelloWorld from './components/HelloWorld.vue';
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+export default {
+  name: "App",
+  // components : {
+  //   HelloWorld
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+ 
+  // },
+  data: () => ({
+    //
+    showPassword: false
+  }),
+};
+</script>
